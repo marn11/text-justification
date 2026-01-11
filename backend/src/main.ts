@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   //when we receive a plain text request, we parse its body
   // as a string and put it in the req body
-  app.use(bodyParser.text({ type: 'text/plain' }));
+  app.use(bodyParser.text({ type: 'text/plain', limit: '1mb' }));
   app.setGlobalPrefix('api');
   app.useGlobalPipes(
     new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),

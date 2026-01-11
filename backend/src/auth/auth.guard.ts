@@ -1,14 +1,18 @@
 import {
   CanActivate,
   ExecutionContext,
+  HttpException,
+  HttpStatus,
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
-
 @Injectable()
 export class AuthGuard implements CanActivate {
+  private countWords(text: string) {
+    return text.trim().split(/\s+/).length;
+  }
   constructor(private authService: AuthService) {}
   canActivate(
     context: ExecutionContext,
@@ -22,6 +26,20 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('Invalid Authorization format');
     if (!this.authService.isValidToken(token))
       throw new UnauthorizedException('Invalid token');
+    console.log('words: ', this.countWords(request.body));
+    try {
+      this.authService.checkAndConsumeQuota(
+        token,
+        this.countWords(request.body),
+      );
+    } catch (e) {
+      if (e.message === 'QUOTA EXCEEDED')
+        throw new HttpException(
+          '80k words limit exceeded',
+          HttpStatus.PAYMENT_REQUIRED,
+        );
+      throw e;
+    }
     request.user = { token, email: this.authService.getEmailFromToken(token) };
     return true;
   }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class JustifierService {
@@ -34,6 +34,8 @@ export class JustifierService {
     return res;
   }
   justify(text: string): string {
+    if (!text || !text.trim().length)
+      throw new BadRequestException('Missing text to justify');
     const paragraphs = text.split(/\n\s*\n/);
     const res: string[] = [];
     for (const paragraph of paragraphs) {
