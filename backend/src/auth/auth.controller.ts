@@ -7,6 +7,6 @@ export class AuthController {
   constructor(private authService: AuthService) {}
   @Post()
   create(@Body() tokenDto: TokenDto) {
-    return this.authService.newToken(tokenDto.email);
+    return this.authService.getToken(tokenDto.email);
   }
 }
