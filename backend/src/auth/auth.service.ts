@@ -33,6 +33,7 @@ export class AuthService {
     const now = Date.now();
     const usage = this.userUsage.get(token);
     if (!usage) {
+      if (words > MAX_LENGTH) throw new Error('QUOTA EXCEEDED');
       this.userUsage.set(token, { count: words, windowStart: now });
       return;
     }
@@ -43,7 +44,7 @@ export class AuthService {
       });
       return;
     }
-    if (usage.count + words > MAX_LENGTH) throw new Error('QUOTA EXCEEDED');
+    if (usage?.count + words > MAX_LENGTH) throw new Error('QUOTA EXCEEDED');
     usage.count += words;
   }
 }
