@@ -26,7 +26,6 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('Invalid Authorization format');
     if (!this.authService.isValidToken(token))
       throw new UnauthorizedException('Invalid token');
-    console.log('words: ', this.countWords(request.body));
     try {
       this.authService.checkAndConsumeQuota(
         token,
