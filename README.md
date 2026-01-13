@@ -71,10 +71,10 @@ Content-Type: text/plain``
 #### Body
 ``Raw text to justify``
 #### Responses
-- 200 OK → justified text
-- 401 Unauthorized → missing or invalid token
-- 402 Payment Required → daily quota exceeded
-- 400 Bad Request → empty body
+- ``200 OK`` → justified text
+- ``401 Unauthorized`` → missing or invalid token
+- ``402 Payment Required`` → daily quota exceeded
+- ``400 Bad Request`` → empty body
 ## 🧪 Testing
 This project includes:
 - Unit tests (services, guards)
