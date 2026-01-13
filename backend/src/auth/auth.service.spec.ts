@@ -30,4 +30,11 @@ describe('AuthService', () => {
       service.checkAndConsumeQuota(token, 80001);
     }).toThrow();
   });
+  it('should throw in the first and the second should work normally', () => {
+    const { token } = service.getToken('tictactrip@example.com');
+    expect(() => service.checkAndConsumeQuota(token, 80001)).toThrow();
+    service.checkAndConsumeQuota(token, 1);
+    const usage = service.getUserUsage(token);
+    expect(usage?.count).toBe(1);
+  });
 });
