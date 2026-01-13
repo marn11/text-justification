@@ -93,6 +93,9 @@ Coverage is generated via:
 ### Additional info
 I did a multi stage build, which helped make the final image much smaller than the build image.
 <img width="989" height="155" alt="Capture d&#39;écran 2026-01-13 143001" src="https://github.com/user-attachments/assets/f51bca9c-a816-4285-b8fd-335b2d5a3cdf" />
+## 📄 Documentation
+I used Swagger since it integrates seamlessly with NestJS, and they have a dedicated part in their docs about it.
+<img width="1905" height="941" alt="image" src="https://github.com/user-attachments/assets/6dca94b8-1099-48a7-aaa6-7a5245fada04" />
 
 ## ⚠️ Limitations
 - In-memory storage (tokens & quotas reset on restart)
