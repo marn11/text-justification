@@ -53,6 +53,8 @@ Used to store:
 ## API Endpoints
 ### 🔑 POST /token
 Generates (or returns) a token for a given email.
+<img width="1327" height="718" alt="Capture d&#39;écran 2026-01-13 175510" src="https://github.com/user-attachments/assets/93fc9dd3-5345-4cae-a12b-4d6bd1c06089" />
+
 #### Request
 ``POST /token
 Content-Type: application/json
@@ -65,6 +67,8 @@ Content-Type: application/json
 }``
 ### 📄 POST /justify
 Jusifies the input text.
+<img width="1333" height="755" alt="Capture d&#39;écran 2026-01-13 175522" src="https://github.com/user-attachments/assets/579f8666-a94d-4bb7-a2a0-4ba50e79069b" />
+<img width="1331" height="756" alt="Capture d&#39;écran 2026-01-13 175608" src="https://github.com/user-attachments/assets/92c95b72-05d7-42a2-9032-4bcf3f564a62" />
 #### Headers
 ``Authorization: Bearer <token>
 Content-Type: text/plain``
@@ -86,6 +90,10 @@ Coverage is generated via:
 ``docker build -t text-justifier-api .``
 ### Run
 ``docker run -p 3000:3000 text-justifier-api``
+### Additional info
+I did a multi stage build, which helped make the final image much smaller than the build image.
+<img width="989" height="155" alt="Capture d&#39;écran 2026-01-13 143001" src="https://github.com/user-attachments/assets/f51bca9c-a816-4285-b8fd-335b2d5a3cdf" />
+
 ## ⚠️ Limitations
 - In-memory storage (tokens & quotas reset on restart)
 These limitations are intentional and aligned with the scope of the exercice.
