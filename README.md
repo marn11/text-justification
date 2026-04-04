@@ -101,6 +101,6 @@ I used Swagger since it integrates seamlessly with NestJS, and they have a dedic
 - In-memory storage (tokens & quotas reset on restart)
 These limitations are intentional and aligned with the scope of the exercice.
 ## Useful links
-- I loved this video from Theo about rate-limiting, I'll link it as well as the source article:
+I loved this video from Theo about rate-limiting, I'll link it as well as the source article:
 - https://youtu.be/8QyygfIloMc
 - https://smudge.ai/blog/ratelimit-algorithms
