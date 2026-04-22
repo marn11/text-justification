@@ -71,11 +71,25 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
+.surface-card,
+.metric-card,
+.info-row,
+.primary-button,
+.secondary-button {
+  will-change: transform;
+}
+
 .surface-card {
   border: 1px solid var(--border-soft);
   background: color-mix(in oklch, var(--surface-raised) 82%, white 18%);
   border-radius: 2rem;
   box-shadow: var(--shadow-soft);
+  transform: translateZ(0);
+}
+
+.surface-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 60px oklch(0.25 0.02 40 / 0.1);
 }
 
 .eyebrow {
@@ -162,6 +176,15 @@ textarea:focus-visible {
   font-family: "IBM Plex Mono", "Cascadia Code", "Consolas", monospace;
   font-size: 0.9rem;
   line-height: 1.75;
+}
+
+.editor-output pre {
+  min-width: fit-content;
+  white-space: pre;
+  word-break: normal;
+}
+
+.code-panel {
   white-space: pre-wrap;
   word-break: break-word;
 }
@@ -188,6 +211,12 @@ textarea:focus-visible {
   background: var(--surface-muted);
   padding: 1rem 1.1rem;
   flex-direction: column;
+}
+
+.metric-card:hover,
+.info-row:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
 }
 
 .metric-card span,

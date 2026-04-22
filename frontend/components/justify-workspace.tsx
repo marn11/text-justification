@@ -2,6 +2,8 @@
 
 import { FormEvent, useEffect, useMemo, useState, useTransition } from "react";
 
+import { MotionFade } from "@/components/motion-fade";
+
 const TOKEN_STORAGE_KEY = "justifier-token";
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:3001/api";
@@ -85,7 +87,7 @@ export function JustifyWorkspace() {
 
   return (
     <section className="grid gap-8">
-      <div className="surface-card grid gap-8 p-8 sm:p-10">
+      <MotionFade className="surface-card grid gap-8 p-8 sm:p-10" delay={0.04}>
         <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <div className="max-w-3xl">
             <span className="eyebrow">Step 2</span>
@@ -164,10 +166,10 @@ export function JustifyWorkspace() {
             {error}
           </p>
         ) : null}
-      </div>
+      </MotionFade>
 
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="surface-card p-6">
+        <MotionFade className="surface-card p-6" delay={0.12}>
           <span className="eyebrow">Response checks</span>
           <div className="mt-4 grid gap-3 text-sm text-[var(--ink-muted)]">
             <div className="stat-row">
@@ -183,16 +185,16 @@ export function JustifyWorkspace() {
               <strong>402 on limit</strong>
             </div>
           </div>
-        </div>
+        </MotionFade>
 
-        <div className="surface-card p-6">
+        <MotionFade className="surface-card p-6" delay={0.18}>
           <span className="eyebrow">Request format</span>
           <pre className="code-panel mt-4">{`POST ${API_BASE_URL}/justify
 Authorization: Bearer <token>
 Content-Type: text/plain
 
 Your raw text goes here.`}</pre>
-        </div>
+        </MotionFade>
       </div>
     </section>
   );

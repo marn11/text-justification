@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { MotionFade } from "@/components/motion-fade";
 import { SiteShell } from "@/components/site-shell";
 
 const features = [
@@ -27,7 +28,7 @@ export default function Home() {
   return (
     <SiteShell currentPath="/">
       <section className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-        <div className="surface-card p-8 sm:p-10 lg:p-12">
+        <MotionFade className="surface-card p-8 sm:p-10 lg:p-12" delay={0.05}>
           <span className="eyebrow">Minimal frontend for the API</span>
           <h1 className="mt-5 max-w-4xl text-balance text-5xl font-semibold tracking-[-0.06em] text-[var(--ink-strong)] sm:text-6xl">
             justifier turns a backend technical test into a clean, usable
@@ -63,9 +64,9 @@ export default function Home() {
               <strong>80-char lines</strong>
             </div>
           </div>
-        </div>
+        </MotionFade>
 
-        <aside className="grid gap-6">
+        <MotionFade className="grid gap-6" delay={0.12}>
           <div className="surface-card p-7">
             <span className="eyebrow">Flow</span>
             <ol className="mt-4 grid gap-4">
@@ -86,19 +87,23 @@ export default function Home() {
               decorative aesthetic.
             </p>
           </div>
-        </aside>
+        </MotionFade>
       </section>
 
       <section className="mt-8 grid gap-6 lg:grid-cols-3">
         {features.map((feature) => (
-          <article key={feature.title} className="surface-card p-7">
+          <MotionFade
+            key={feature.title}
+            className="surface-card p-7"
+            delay={0.18}
+          >
             <h2 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--ink-strong)]">
               {feature.title}
             </h2>
             <p className="mt-3 text-base leading-7 text-[var(--ink-muted)]">
               {feature.body}
             </p>
-          </article>
+          </MotionFade>
         ))}
       </section>
     </SiteShell>

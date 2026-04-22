@@ -1,0 +1,8 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="72" fill="oklch(0.982 0.007 90)"/>
+  <rect x="22" y="22" width="212" height="212" rx="56" fill="oklch(0.995 0.002 95)" stroke="oklch(0.886 0.012 80)" stroke-width="8"/>
+  <path d="M78 82H178" stroke="oklch(0.292 0.02 44)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M78 118H178" stroke="oklch(0.292 0.02 44)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M78 154H162" stroke="oklch(0.66 0.115 67)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M78 190H148" stroke="oklch(0.47 0.016 52)" stroke-width="16" stroke-linecap="round"/>
+</svg>

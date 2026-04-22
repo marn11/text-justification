@@ -11,6 +11,7 @@
     "screenshots": "playwright test tests/screenshots.spec.ts --project=chromium"
   },
   "dependencies": {
+    "motion": "^12.23.24",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3"

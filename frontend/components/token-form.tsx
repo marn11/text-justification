@@ -2,6 +2,8 @@
 
 import { FormEvent, useEffect, useState, useTransition } from "react";
 
+import { MotionFade } from "@/components/motion-fade";
+
 const TOKEN_STORAGE_KEY = "justifier-token";
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:3001/api";
@@ -72,7 +74,7 @@ export function TokenForm() {
 
   return (
     <section className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-      <div className="surface-card p-8 sm:p-10">
+      <MotionFade className="surface-card p-8 sm:p-10" delay={0.04}>
         <div className="flex max-w-xl flex-col gap-4">
           <span className="eyebrow">Step 1</span>
           <h1 className="text-balance text-4xl font-semibold tracking-[-0.04em] text-[var(--ink-strong)] sm:text-5xl">
@@ -129,9 +131,12 @@ export function TokenForm() {
             </button>
           </div>
         </div>
-      </div>
+      </MotionFade>
 
-      <aside className="surface-card flex flex-col justify-between gap-6 p-8">
+      <MotionFade
+        className="surface-card flex flex-col justify-between gap-6 p-8"
+        delay={0.12}
+      >
         <div className="grid gap-5">
           <span className="eyebrow">How it works</span>
           <div className="grid gap-4">
@@ -158,7 +163,7 @@ export function TokenForm() {
             {API_BASE_URL}
           </p>
         </div>
-      </aside>
+      </MotionFade>
     </section>
   );
 }
