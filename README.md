@@ -133,3 +133,47 @@ Frontend coverage includes linting, production build validation, Playwright e2e 
 - Tokens and quotas are stored in memory, so they reset when the backend restarts.
 - The quota window is fixed to 24 hours from first usage for a given token.
 - The frontend tests mock API responses so UI verification stays fast and repeatable.
+}``
+#### Response
+``{
+    "token" : "uuid-token"
+}``
+### 📄 POST /justify
+Jusifies the input text.
+<img width="1333" height="755" alt="Capture d&#39;écran 2026-01-13 175522" src="https://github.com/user-attachments/assets/579f8666-a94d-4bb7-a2a0-4ba50e79069b" />
+<img width="1331" height="756" alt="Capture d&#39;écran 2026-01-13 175608" src="https://github.com/user-attachments/assets/92c95b72-05d7-42a2-9032-4bcf3f564a62" />
+#### Headers
+``Authorization: Bearer <token>
+Content-Type: text/plain``
+#### Body
+``Raw text to justify``
+#### Responses
+- ``200 OK`` → justified text
+- ``401 Unauthorized`` → missing or invalid token
+- ``402 Payment Required`` → daily quota exceeded
+- ``400 Bad Request`` → empty body
+## 🧪 Testing
+This project includes:
+- Unit tests (services, guards)
+- End-to-End tests (happy path, quota exceeded, unauthorized)
+Coverage is generated via:
+`` npm run test:cov``
+## Docker
+### Build
+``docker build -t text-justifier-api .``
+### Run
+``docker run -p 3000:3000 text-justifier-api``
+### Additional info
+I did a multi stage build, which helped make the final image much smaller than the build image.
+<img width="989" height="155" alt="Capture d&#39;écran 2026-01-13 143001" src="https://github.com/user-attachments/assets/f51bca9c-a816-4285-b8fd-335b2d5a3cdf" />
+## 📄 Documentation
+I used Swagger since it integrates seamlessly with NestJS, and they have a dedicated part in their docs about it.
+<img width="1905" height="941" alt="image" src="https://github.com/user-attachments/assets/6dca94b8-1099-48a7-aaa6-7a5245fada04" />
+
+## ⚠️ Limitations
+- In-memory storage (tokens & quotas reset on restart)
+These limitations are intentional and aligned with the scope of the exercice.
+## Useful links
+I loved this video from Theo about rate-limiting, I'll link it as well as the source article:
+- https://youtu.be/8QyygfIloMc
+- https://smudge.ai/blog/ratelimit-algorithms
